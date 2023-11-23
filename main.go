@@ -15,5 +15,8 @@ func main() {
 	}
 
 	todo.Add("first task")
+	todo.Add("second task")
+	todo.Add("third task")
+	todo.Print()
 	todo.Store("tasks.json")
 }
