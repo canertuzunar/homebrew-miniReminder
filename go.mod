@@ -1,4 +1,4 @@
-module github.com/canertuzunar/miniRemainder
+module github.com/canertuzunar/miniReminder
 
 go 1.21.4
 

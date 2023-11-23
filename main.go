@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/canertuzunar/miniRemainder/services"
+	"github.com/canertuzunar/miniReminder/services"
 )
 
 func main() {
