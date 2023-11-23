@@ -18,5 +18,10 @@ func main() {
 	todo.Add("second task")
 	todo.Add("third task")
 	todo.Print()
+	err := todo.Complete(1)
+	if err != nil {
+		log.Fatal(err)
+	}
+	todo.Print()
 	todo.Store("tasks.json")
 }
