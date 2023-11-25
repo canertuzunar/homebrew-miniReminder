@@ -41,6 +41,7 @@ func (t *Todos) Load(filename string) error {
 }
 
 func (t *Todos) Add(task string) {
+	fmt.Println(task)
 	todo := item{
 		Task:        task,
 		Done:        false,
@@ -64,7 +65,7 @@ func (t *Todos) Complete(index int) error {
 	return nil
 }
 
-func (t *Todos) Store(filename string) {
+func (t *Todos) Save(filename string) {
 	data, err := json.Marshal(t)
 	if err != nil {
 		log.Fatal(err)
@@ -115,4 +116,8 @@ func (t *Todos) Print() {
 	table.SetStyle(simpletable.StyleUnicode)
 
 	table.Println()
+}
+
+func (t *Todos) Delete(idx int) {
+
 }
