@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"log"
 	"os"
 	"strconv"
@@ -15,6 +16,15 @@ var (
 
 func main() {
 	todo := &services.Todos{}
+
+	if _, err := os.Stat("./tasks.json"); errors.Is(err, os.ErrNotExist){
+		err = os.WriteFile("./tasks.json", []byte{}, 0644)
+		if err != nil {
+			log.Fatal(err)
+		}
+		log.Print("Task file created")
+	}
+
 	if err := todo.Load("tasks.json"); err != nil {
 		log.Fatal(err)
 	}
