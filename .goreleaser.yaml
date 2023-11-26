@@ -17,7 +17,7 @@ builds:
   - env:
       - CGO_ENABLED=0
     # your entrypoint into your application
-    main: ./makesite.go
+    main: ./main.go
     # the name of the binary that you want to generate - this will also be the binary name for when we get to homebrew...
     # Example: ms checkin <code> where ms is the name of the binary
     binary: main
@@ -31,18 +31,15 @@ archives:
         format: zip
     # Just the naming convention for tarballs... Example: msconsole_1.0.0_darwin_64bit
     name_template: "{{.ProjectName}}_{{.Version}}_{{.Os}}-{{.Arch}}"
-    # Replace the cryptic arch's with readable human naming conventions
-    replacements:
-      amd64: 64bit
-      386: 32bit
-      arm: ARM
-      arm64: ARM64
-      darwin: macOS
-      linux: Linux
-      windows: Windows
-    files:
-      - Readme.MD
-      - LICENSE
+    # # Replace the cryptic arch's with readable human naming conventions
+    # replacements:
+    #   amd64: 64bit
+    #   386: 32bit
+    #   arm: ARM
+    #   arm64: ARM64
+    #   darwin: macOS
+    #   linux: Linux
+    #   windows: Windows
 # The generated checksum after your build. No need to touch this unless you know what you are doing.
 checksum:
   name_template: "checksums.txt"
@@ -59,3 +56,14 @@ changelog:
       - "README"
       - Merge pull request
       - Merge branch
+brews:
+  - name: miniReminder
+    description: Todo app for terminal
+    homepage: https://github.com/canertuzunar/miniReminder
+    tap:
+      owner: canertuzunar
+      name: miniReminder
+    commit_author:
+      name: canertuzunar
+      email: tuzunarcaner@gmail.com
+    folder: Formula
